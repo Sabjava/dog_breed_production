@@ -80,6 +80,22 @@ This table shows the differences in hyperparameters and their implications betwe
    - `hpo.py` trains for 50 epochs, allowing for thorough learning but with a potential risk of overfitting if not monitored.
 
 These differences highlight the resource-optimized nature of `ec2train.py` versus the hyperparameter-optimized approach in `hpo.py`.
+Based on the analysis it  would make sense to conside ec2 ttrained model to be POC rather than optimized. I decided to use the least expensive approach and to train it in my local environment in a docker container.
+Docker container used the following image:
+`public.ecr.aws/sagemaker/sagemaker-distribution   1.11-gpu   5c13a56bf735   2 months ago   15.2GB` 
+Here is the output of running the script :
+```
+(base) sagemaker-user@d35e46982340:/app/starter$ python3 ec2train1.py 
+/opt/conda/lib/python3.10/site-packages/torchvision/models/_utils.py:208: UserWarning: The parameter 'pretrained' is deprecated since 0.13 and may be removed in the future, please use 'weights' instead.
+  warnings.warn(
+/opt/conda/lib/python3.10/site-packages/torchvision/models/_utils.py:223: UserWarning: Arguments other than a weight enum or `None` for 'weights' are deprecated since 0.13 and may be removed in the future. The current behavior is equivalent to passing `weights=ResNet50_Weights.IMAGENET1K_V1`. You can also use `weights=ResNet50_Weights.DEFAULT` to get the most up-to-date weights.
+  warnings.warn(msg)
+Downloading: "https://download.pytorch.org/models/resnet50-0676ba61.pth" to /home/sagemaker-user/.cache/torch/hub/checkpoints/resnet50-0676ba61.pth
+100%|██████████████████████████████████████████████████████████████████████████████████| 97.8M/97.8M [00:04<00:00, 20.5MB/s]
+Starting Model Training
+[W NNPACK.cpp:64] Could not initialize NNPACK! Reason: Unsupported hardware.
+saved
+```
 
 version 
 
