@@ -10,25 +10,23 @@ Using a local container allowed for efficient resource utilization by minimizing
 Due to limited access to the existing AWS account(issue reported to Udacity) at the moment of developing, EC2 instance was successfully replaced by local Docker container. Please note that 
 
 # SageMaker Traning / Deployment
-- Hyperparamter tuning
-  Here is the list of Hyperparameter tuning jobs thare we run during SageMaker phase:
+- Hyperparamter tuning. The list of Hyperparameter tuning jobs thare we run during SageMaker phase obrained by `aws cli`:
   
-instance_type="ml.g4dn.xlarge",
 <img width="1280" alt="Screen Shot 2024-12-09 at 09 48 27" src="https://github.com/user-attachments/assets/f4bc2efa-a1f0-4126-b6a3-e5e00cd096ac">
 
 
--  Creating an estimator. Here is the latest training job that was later deployed
+-  Creating an estimator. The latest training job that was later deployed
 <img width="1127" alt="SM_training_job" src="https://github.com/user-attachments/assets/f3c010ea-f3a4-4f61-847d-89ce0275c6de">
 
--  Deplying endpoint
-  Here is screenshot of deployed endpoint
+
+-  Deploying endpoint. Screenshot of deployed endpoint
 <img width="863" alt="SM_endpoint_deployed" src="https://github.com/user-attachments/assets/20d3bc80-7f23-4fd6-be65-20ff4cae45ea">
+
 
 We used 2 different instances for tuning and training with best estimator `ml.g4dn.xlarge` and `ml.m5.xlarge`:
 
 ## Instance Comparison: `ml.g4dn.xlarge` vs `ml.m5.xlarge`
 
-This table provides a quick comparison between two Amazon SageMaker instance types to help you choose the best one for your machine learning workloads.
 
 | Feature               | ml.g4dn.xlarge                          | ml.m5.xlarge                          |
 |-----------------------|-----------------------------------------|----------------------------------------|
