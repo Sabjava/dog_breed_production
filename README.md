@@ -44,7 +44,7 @@ We used 2 different instances for tuning and training with best estimator `ml.g4
 
 # EC2 Training
 
-Before deciding which image to use to run the training job inside EC2 image, I analyzed the difference in the code
+Before deciding which image to use to run the training job inside EC2 instance, I analyzed the difference in the code
 There are several differences. 
 
 1. epoch_loss = running_loss / len(image_dataset[phase]) in ec2train.py
@@ -83,23 +83,8 @@ These differences highlight the resource-optimized nature of `ec2train.py` versu
 Based on the analysis it  would make sense to conside ec2 ttrained model to be POC rather than optimized. I decided to use the least expensive approach and to train it in my local environment in a docker container.
 Docker container used the following image:
 `public.ecr.aws/sagemaker/sagemaker-distribution   1.11-gpu   5c13a56bf735   2 months ago   15.2GB` 
-Here is the output of running the script :
-```
-(base) sagemaker-user@d35e46982340:/app/starter$ python3 ec2train1.py 
-/opt/conda/lib/python3.10/site-packages/torchvision/models/_utils.py:208: UserWarning: The parameter 'pretrained' is deprecated since 0.13 and may be removed in the future, please use 'weights' instead.
-  warnings.warn(
-/opt/conda/lib/python3.10/site-packages/torchvision/models/_utils.py:223: UserWarning: Arguments other than a weight enum or `None` for 'weights' are deprecated since 0.13 and may be removed in the future. The current behavior is equivalent to passing `weights=ResNet50_Weights.IMAGENET1K_V1`. You can also use `weights=ResNet50_Weights.DEFAULT` to get the most up-to-date weights.
-  warnings.warn(msg)
-Downloading: "https://download.pytorch.org/models/resnet50-0676ba61.pth" to /home/sagemaker-user/.cache/torch/hub/checkpoints/resnet50-0676ba61.pth
-100%|██████████████████████████████████████████████████████████████████████████████████| 97.8M/97.8M [00:04<00:00, 20.5MB/s]
-Starting Model Training
-[W NNPACK.cpp:64] Could not initialize NNPACK! Reason: Unsupported hardware.
-saved
-```
 
-version 
+Execution took around 20 min and resulted in model being saved:
 
-Managing computing resources efficiently
-Training models with large datasets using multi-instance training
-Setting up high-throughput, low-latency pipelines
-AWS security
+<img width="1118" alt="Screen Shot 2024-12-09 at 14 43 13" src="https://github.com/user-attachments/assets/9366f919-03df-4265-a4d6-731669f18ba8">
+
