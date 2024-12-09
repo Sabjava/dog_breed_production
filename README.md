@@ -24,7 +24,24 @@ instance_type="ml.g4dn.xlarge",
   Here is screenshot of deployed endpoint
 <img width="863" alt="SM_endpoint_deployed" src="https://github.com/user-attachments/assets/20d3bc80-7f23-4fd6-be65-20ff4cae45ea">
 
+We used 2 different instances for tuning and training with best estimator `ml.g4dn.xlarge` and `ml.m5.xlarge`:
 
+## Instance Comparison: `ml.g4dn.xlarge` vs `ml.m5.xlarge`
+
+This table provides a quick comparison between two Amazon SageMaker instance types to help you choose the best one for your machine learning workloads.
+
+| Feature               | ml.g4dn.xlarge                          | ml.m5.xlarge                          |
+|-----------------------|-----------------------------------------|----------------------------------------|
+| **vCPUs**             | 4                                       | 4                                      |
+| **Memory**            | 16 GiB                                  | 16 GiB                                 |
+| **GPU**               | 1 NVIDIA T4 Tensor Core GPU with 16 GiB VRAM | None                                   |
+| **Instance Storage**  | 125 GB NVMe SSD                         | EBS Only                               |
+| **Network Performance** | Up to 25 Gbps                         | Up to 10 Gbps                          |
+| **Price (On-Demand)** | ~$0.526 per hour                        | ~$0.192 per hour                       |
+
+### Key differences: 
+- Use `ml.g4dn.xlarge` for GPU-accelerated tasks like deep learning training or inference.
+- Use `ml.m5.xlarge` for general-purpose CPU-bound tasks - most heavy lifting was done at the tuning phase, so it made sense to use cheaper instance for training
 
 
 # EC2 Training
