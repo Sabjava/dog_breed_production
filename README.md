@@ -88,3 +88,11 @@ Execution took around 20 min and resulted in model being saved:
 
 <img width="1118" alt="Screen Shot 2024-12-09 at 14 43 13" src="https://github.com/user-attachments/assets/9366f919-03df-4265-a4d6-731669f18ba8">
 
+# Using Lambda to make predictions
+Lambda function serves as a bridge between a client request and the SageMaker endpoint `pytorch-inference-2024-12-09-02-08-34-307`. It expects a JSON payload from the client containing the key url, which specifies the image URL to be sent for prediction. The function uses the boto3 library to invoke the SageMaker endpoint with the provided input, sending the data in JSON format. The prediction results are read from the endpoint’s response, parsed from JSON, and returned to the client along with appropriate HTTP headers. This design enables seamless integration with SageMaker for real-time inference on image data.
+
+![Screenshot 2024-11-22 at 11 24 59 AM (2)](https://github.com/user-attachments/assets/5a28b85b-66e9-4e1c-9d4e-254337991e27)
+
+## Security
+Amazon Web Services (AWS) provides a highly secure environment, with robust security features such as data encryption, network firewalls, and identity and access management (IAM). However, the security of an AWS workspace largely depends on how it is configured and used. To maintain a secure workspace, it is essential to follow best practices such as granting the minimum necessary permissions (principle of least privilege), restricting access to only the required services and resources, enabling multi-factor authentication (MFA), and monitoring activity through tools like AWS CloudTrail and CloudWatch. By leveraging these features effectively, AWS workspaces can be both secure and resilient to potential threats.
+
