@@ -20,8 +20,18 @@ aws s3 sync
 ```
 <img width="1110" alt="Screen Shot 2024-12-07 at 22 34 32" src="https://github.com/user-attachments/assets/67278ad8-5b5e-4dc4-814f-b2ef0f9ac136">
 
+# SageMaker Notebook image selection
+The main goal of the SageMaker notebook instance is to  provide an environment for developing, testing, and experimenting with my code. There is not much in this project. 
 
-
+| **Factor**           | **Small Instance (e.g., ml.t3.medium)** | **Large Instance (e.g., ml.m5.large)** |
+|-----------------------|----------------------------------------|----------------------------------------|
+| **Workload Type**     | Light tasks, prototyping              | Data processing, standard workloads    | 
+| **Dataset Size**      | Small (<4 GB)                         | Medium to large                        | 
+| **Model Complexity**  | Simple models                         | Moderate models                        | 
+| **Cost**              | ~$0.046/hour                          | ~$0.115/hour                          | 
+| **Startup Time**      | Fast                                  | Moderate                              | 
+ 
+Medium image could work, however Docker container on my personal laptop is free, and its size is 8GB memory,  2 CPU, a lot of mounted disc space, more like aws ml.m5.large,  so I went with it.
 
 # SageMaker Traning / Deployment
 ## Hyperparameter tuning.
