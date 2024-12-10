@@ -24,7 +24,7 @@ aws s3 sync
 
 
 # SageMaker Traning / Deployment
-## Hyperparamter tuning.
+## Hyperparameter tuning.
 - The list of Hyperparameter tuning jobs that we run during SageMaker phase obtained by `aws cli`:
   
 <img width="1280" alt="Screen Shot 2024-12-09 at 09 48 27" src="https://github.com/user-attachments/assets/f4bc2efa-a1f0-4126-b6a3-e5e00cd096ac">
