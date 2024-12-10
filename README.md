@@ -56,7 +56,7 @@ We used 2 different instances for tuning and training with best estimator `ml.g4
 
 ### Key differences: 
 - Use `ml.g4dn.xlarge` for GPU-accelerated tasks like deep learning training or inference.
-- Use `ml.m5.xlarge` for general-purpose CPU-bound tasks - most heavy lifting was done at the tuning phase, so it made sense to use cheaper instance for training
+- Use `ml.m5.xlarge` for general-purpose CPU-bound tasks - most heavy lifting was done at the tuning phase on ml.g4dn.xlarge, so it made sense to use cheaper instance for training (ml.m5.xlarge )
 
 
 # EC2 Training
