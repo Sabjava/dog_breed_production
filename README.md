@@ -18,7 +18,6 @@ It was downloded to local machine and later uploaded using command line aws and 
 ```
 aws s3 sync
 ```
-<img width="1110" alt="Screen Shot 2024-12-07 at 22 34 32" src="https://github.com/user-attachments/assets/67278ad8-5b5e-4dc4-814f-b2ef0f9ac136">
 
 # SageMaker Notebook image selection
 The main goal of the SageMaker notebook instance is to  provide an environment for developing, testing, and experimenting with my code. There is not much in this project. 
@@ -47,7 +46,7 @@ Medium image could work, however Docker container on my personal laptop is free,
 
 ## Deploying endpoint. Screenshot of deployed endpoint
 
-<img width="863" alt="SM_endpoint_deployed" src="https://github.com/user-attachments/assets/20d3bc80-7f23-4fd6-be65-20ff4cae45ea">
+<img width="500" alt="SM_endpoint_deployed" src="https://github.com/user-attachments/assets/20d3bc80-7f23-4fd6-be65-20ff4cae45ea">
 
 
 We used 2 different instances for tuning and training with best estimator `ml.g4dn.xlarge` and `ml.m5.xlarge`:
