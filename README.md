@@ -9,6 +9,20 @@ Using a local container allowed for efficient resource utilization by minimizing
 
 Due to limited access to the existing AWS account at the moment of writing the report, EC2 instance was successfully replaced by local Docker container. The issue is reported to Udacity.
 
+# Dataset
+Training / Validateion / Test dataset contained multiple images of 133 breeds and was downloaded from AWS by
+```
+wget https://s3-us-west-1.amazonaws.com/udacity-aind/dog-project/dogImages.zip
+```
+It was downloded to local machine and later uploaded using command line aws and stored in S3
+```
+aws s3 sync
+```
+<img width="1110" alt="Screen Shot 2024-12-07 at 22 34 32" src="https://github.com/user-attachments/assets/67278ad8-5b5e-4dc4-814f-b2ef0f9ac136">
+
+
+
+
 # SageMaker Traning / Deployment
 ## Hyperparamter tuning.
 - The list of Hyperparameter tuning jobs that we run during SageMaker phase obtained by `aws cli`:
@@ -96,10 +110,37 @@ Lambda function serves as a bridge between a client request and the SageMaker en
 
 <img width="1280" alt="Screen Shot 2024-12-09 at 17 41 05" src="https://github.com/user-attachments/assets/8e66e41a-8ce8-4ec2-96b4-ec578498739d">
 
-## Security
+# Security
 To maintain a secure workspace, I followed best practices such as granting the minimum necessary permissions (principle of least privilege), restricting access to only the required services and resources through IAM Roles and monitoring lambda logs through  AWS CloudTrail and CloudWatch. By leveraging these features effectively, AWS workspaces are both secure and resilient to potential threats.
 
-## Acknowledgement
+# Scalability and Concurrency 
+This ML project leverages AWS SageMaker for model deployment and Lambda for prediction requests, using auto-scaling to efficiently handle varying traffic loads. SageMaker instances scale automatically based on demand, ensuring resources are optimized and costs are minimized by adjusting the number of instances based on CPU or memory usage. Lambda handles high concurrency, processing individual prediction requests, with costs based on the number of invocations and execution duration. By optimizing inference models, minimizing Lambda execution time, and using auto-scaling policies, the system maintains high availability and cost-efficiency while serving machine learning predictions at scale.
+Here is adjustment in estimater to allow scalability
+```
+estimator = PyTorch(
+    entry_point='hpo.py',
+    base_job_name='dog-pytorch',
+    role=role,
+    instance_count=2,
+    instance_type='ml.m5.xlarge',
+    framework_version='1.4.0',
+    py_version='py3',
+    hyperparameters=hyperparameters,
+    ## Debugger and Profiler parameters
+    rules = rules,
+    debugger_hook_config=hook_config,
+    profiler_config=profiler_config,
+)
+```
+There are several limits we can use in lambda configuration:
+```
+aws lambda put-function-concurrency \
+    --function-name dog_breed_predictior \
+    --reserved-concurrent-executions 100
+```
+This will ensure that no more than 100 instances of the Lambda function will run concurrently.
+
+# Acknowledgement
 
 I thank all the teachers who helped me by providing interesting assignments and learning materials.  Kudos to chatGPT (and all developers whose code is used by the tool), I  can imagine how much harder this project was before. 
 
