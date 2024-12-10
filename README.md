@@ -96,3 +96,7 @@ Lambda function serves as a bridge between a client request and the SageMaker en
 ## Security
 Amazon Web Services (AWS) provides a highly secure environment, with robust security features such as data encryption, network firewalls, and identity and access management (IAM). However, the security of an AWS workspace largely depends on how it is configured and used. To maintain a secure workspace, I follow best practices such as granting the minimum necessary permissions (principle of least privilege), restricting access to only the required services and resources, enabling multi-factor authentication (MFA), and monitoring activity through tools like AWS CloudTrail and CloudWatch. By leveraging these features effectively, AWS workspaces can be both secure and resilient to potential threats.
 
+## Acknowledgement
+
+I thank all the teachers who helped me by providing interesting assignments and learning materails.  Kudos to chatGPT (and all develoers whose code is used by the tool), I  can imagine how much harder this project was before. 
+
