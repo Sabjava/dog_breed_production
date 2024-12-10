@@ -100,3 +100,7 @@ To maintain a secure workspace, I followed best practices such as granting the m
 
 I thank all the teachers who helped me by providing interesting assignments and learning materials.  Kudos to chatGPT (and all developers whose code is used by the tool), I  can imagine how much harder this project was before. 
 
+![French_bulldog_04821](https://github.com/user-attachments/assets/5efc76a5-7b61-43d9-95b2-16f48136384a)
+
+
+
