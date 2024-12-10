@@ -10,7 +10,7 @@ Using a local container allowed for efficient resource utilization by minimizing
 Due to limited access to the existing AWS account at the moment of writing the report, EC2 instance was successfully replaced by local Docker container. The issue is reported to Udacity.
 
 # Dataset
-Training / Validateion / Test dataset contained multiple images of 133 breeds and was downloaded from AWS by
+Training / Validation / Test dataset contained multiple images of 133 breeds and was downloaded from AWS by
 ```
 wget https://s3-us-west-1.amazonaws.com/udacity-aind/dog-project/dogImages.zip
 ```
