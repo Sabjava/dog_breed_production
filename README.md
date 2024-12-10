@@ -66,7 +66,7 @@ There are several differences.
 
 1. epoch_loss = running_loss / len(image_dataset[phase]) in ec2train.py
 epoch_loss = running_loss // len(image_dataset[phase]) in hpo.py
-I would suggest using float valaue  as in ec2train. 
+I would suggest using float value  as in ec2train. I do not understand why integer was used in HPO
 
 2. Different hyperparameters are used in hpo and ec2 ,
 
